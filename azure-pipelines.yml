@@ -22,16 +22,16 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '${Build.SourcesDirectory}'
+    sourceFolder: '$(Build.SourcesDirectory)'
     contents: |
       src/*
       public/*
-    targetfolder: '${Build.ArtifactStagingDirectory}'
+    targetfolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
 
 - task: PublishPipelineArtifact@1
   inputs:
     artifactName: e2e-server
-    targetPath: '${Build.ArtifactStagingDirectory}'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
